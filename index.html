@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alexander López | Infraestructura & Seguridad Defensiva</title>
+  <title>Alexander López | Infraestructura · Seguridad Defensiva · GRC</title>
+
+  <!-- Favicon SVG inline -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23080c10'/%3E%3Cpath d='M16 4 L28 9 L28 17 C28 23 22 28 16 30 C10 28 4 23 4 17 L4 9 Z' fill='none' stroke='%2339d353' stroke-width='1.5'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='monospace' font-weight='bold' font-size='10' fill='%2339d353'%3EAL%3C/text%3E%3C/svg%3E">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <style>
     :root {
       --bg: #080c10;
@@ -15,6 +20,7 @@
       --border: #21262d;
       --accent: #39d353;
       --accent2: #58a6ff;
+      --accent3: #e3b341;
       --text: #e6edf3;
       --muted: #8b949e;
       --dim: #30363d;
@@ -34,24 +40,21 @@
 
     body::before {
       content: '';
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background-image:
-        linear-gradient(rgba(57,211,83,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(57,211,83,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(57,211,83,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57,211,83,0.025) 1px, transparent 1px);
       background-size: 40px 40px;
-      pointer-events: none;
-      z-index: 0;
+      pointer-events: none; z-index: 0;
     }
 
-    /* NAV */
+    /* ── NAV ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 1rem 3rem;
-      background: rgba(8,12,16,0.88);
-      backdrop-filter: blur(12px);
+      background: rgba(8,12,16,0.9);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
     .nav-logo {
@@ -59,61 +62,75 @@
       color: var(--accent); letter-spacing: 0.05em; text-decoration: none;
     }
     .nav-logo span { color: var(--text); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
     .nav-links a {
-      color: var(--muted); text-decoration: none; font-size: 0.72rem;
+      color: var(--muted); text-decoration: none; font-size: 0.7rem;
       letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* HERO */
+    /* ── HERO ── */
     #home {
       position: relative; min-height: 100vh;
       display: flex; align-items: center;
       padding: 8rem 3rem 4rem;
       max-width: 1100px; margin: 0 auto;
     }
-    .hero-content { max-width: 720px; }
+    .hero-content { max-width: 740px; }
 
     .hero-tag {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: rgba(57,211,83,0.08); border: 1px solid rgba(57,211,83,0.2);
-      color: var(--accent); font-size: 0.68rem; letter-spacing: 0.15em;
+      color: var(--accent); font-size: 0.67rem; letter-spacing: 0.15em;
       text-transform: uppercase; padding: 0.35rem 0.8rem;
       border-radius: 2px; margin-bottom: 2rem;
     }
     .hero-tag::before {
       content: ''; width: 6px; height: 6px;
-      background: var(--accent); border-radius: 50%; animation: pulse 2s infinite;
+      background: var(--accent); border-radius: 50%; animation: blink 2s infinite;
     }
-    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
 
     h1 {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
       font-weight: 800; line-height: 1.05;
       letter-spacing: -0.02em; margin-bottom: 1.5rem;
     }
     h1 .line2 { color: var(--muted); }
 
+    .hero-pillars {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .hero-pillar {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; color: var(--text);
+    }
+    .hero-pillar i { font-size: 0.8rem; }
+    .hero-pillar.green i { color: var(--accent); }
+    .hero-pillar.blue i  { color: var(--accent2); }
+    .hero-pillar.gold i  { color: var(--accent3); }
+
     .hero-value { margin-bottom: 2rem; }
-    .hero-value p { font-size: 0.88rem; color: var(--muted); line-height: 1.85; max-width: 600px; }
+    .hero-value p { font-size: 0.85rem; color: var(--muted); line-height: 1.88; max-width: 640px; }
     .hero-value p + p { margin-top: 0.75rem; }
     .hero-value strong { color: var(--text); font-weight: 500; }
 
-    .hero-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 2.5rem; }
     .badge {
-      font-size: 0.67rem; padding: 0.25rem 0.65rem;
+      font-size: 0.65rem; padding: 0.22rem 0.6rem;
       border: 1px solid var(--border); border-radius: 2px;
-      color: var(--muted); letter-spacing: 0.08em; background: var(--surface);
+      color: var(--muted); letter-spacing: 0.07em; background: var(--surface);
     }
 
     .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.5rem; font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.72rem 1.4rem; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
       text-decoration: none; border-radius: 2px; transition: all 0.2s; cursor: pointer;
+      border: none;
     }
     .btn-primary { background: var(--accent); color: #000; border: 1px solid var(--accent); font-weight: 500; }
     .btn-primary:hover { background: transparent; color: var(--accent); }
@@ -122,143 +139,186 @@
 
     .hero-right {
       position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-      opacity: 0.055; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
-      line-height: 1.7; color: var(--accent); text-align: right;
+      opacity: 0.05; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+      line-height: 1.75; color: var(--accent); text-align: right;
       pointer-events: none; white-space: pre;
     }
 
-    /* SECTIONS */
+    /* ── SECTIONS ── */
     section {
       position: relative; z-index: 1;
-      max-width: 1100px; margin: 0 auto; padding: 6rem 3rem;
+      max-width: 1100px; margin: 0 auto; padding: 5.5rem 3rem;
     }
     .section-label {
-      display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem;
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem;
     }
     .section-label span {
-      font-size: 0.64rem; letter-spacing: 0.2em;
+      font-size: 0.63rem; letter-spacing: 0.2em;
       text-transform: uppercase; color: var(--accent); white-space: nowrap;
     }
     .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     h2 {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
       font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.5rem;
     }
 
-    /* ABOUT */
+    /* ── ABOUT ── */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .about-text p { color: var(--muted); margin-bottom: 1rem; line-height: 1.9; font-size: 0.82rem; }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; line-height: 1.92; font-size: 0.82rem; }
     .about-text strong { color: var(--text); font-weight: 500; }
-    .about-info { display: flex; flex-direction: column; gap: 1rem; }
+    .about-info { display: flex; flex-direction: column; gap: 0.9rem; }
     .info-item {
       display: flex; align-items: flex-start; gap: 1rem;
-      padding: 0.9rem 1rem; background: var(--surface);
+      padding: 0.85rem 1rem; background: var(--surface);
       border: 1px solid var(--border); border-radius: 3px;
     }
     .info-item i { color: var(--accent); margin-top: 0.1rem; width: 14px; flex-shrink: 0; }
-    .info-item .label { font-size: 0.63rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
-    .info-item .val { font-size: 0.8rem; color: var(--text); }
+    .info-item .label { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .info-item .val { font-size: 0.79rem; color: var(--text); }
 
-    /* SKILLS */
+    /* ── SKILLS ── */
+    .skills-block { margin-bottom: 2.5rem; }
+    .skills-block-title {
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.8rem; padding-left: 2px;
+    }
     .skills-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
       gap: 1px; border: 1px solid var(--border);
     }
     .skill-item {
-      display: flex; align-items: center; gap: 0.75rem;
-      padding: 1rem 1.2rem; background: var(--surface);
-      font-size: 0.78rem; color: var(--muted); transition: all 0.2s;
+      display: flex; align-items: center; gap: 0.7rem;
+      padding: 0.9rem 1.1rem; background: var(--surface);
+      font-size: 0.77rem; color: var(--muted); transition: all 0.2s;
     }
     .skill-item:hover { background: var(--surface2); color: var(--text); }
-    .skill-item i { color: var(--accent2); width: 16px; text-align: center; flex-shrink: 0; }
+    .skill-item i { width: 15px; text-align: center; flex-shrink: 0; }
+    .skill-item.green i { color: var(--accent); }
+    .skill-item.blue i  { color: var(--accent2); }
+    .skill-item.gold i  { color: var(--accent3); }
 
-    /* PROJECTS */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
-    .project-card {
-      padding: 1.6rem; background: var(--surface);
-      border: 1px solid var(--border); border-radius: 3px;
-      transition: all 0.25s; position: relative; overflow: hidden;
+    /* ── LABS ── */
+    .lab-group-title {
+      font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
+      color: var(--muted); margin-bottom: 1.2rem; margin-top: 3rem;
+      display: flex; align-items: center; gap: 0.75rem;
     }
-    .project-card::before {
-      content: ''; position: absolute; top: 0; left: 0;
-      width: 3px; height: 100%; background: var(--border); transition: background 0.2s;
+    .lab-group-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .lab-group-title:first-of-type { margin-top: 0; }
+
+    .labs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1rem; }
+
+    .lab-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 3px; overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+      display: flex; flex-direction: column;
     }
-    .project-card:hover { border-color: var(--dim); transform: translateY(-2px); }
-    .project-card:hover::before { background: var(--accent); }
-    .project-icon { font-size: 1.1rem; color: var(--accent2); margin-bottom: 1rem; }
-    .project-title { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text); }
-    .project-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .project-tag {
-      font-size: 0.63rem; padding: 0.2rem 0.55rem;
+    .lab-card:hover { border-color: var(--dim); transform: translateY(-3px); }
+
+    .lab-img {
+      width: 100%; height: 130px;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .lab-img svg { width: 100%; height: 100%; }
+
+    .lab-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
+    .lab-badge {
+      display: inline-block; font-size: 0.6rem; letter-spacing: 0.14em;
+      text-transform: uppercase; padding: 0.18rem 0.5rem;
+      border-radius: 2px; margin-bottom: 0.7rem; border: 1px solid;
+    }
+    .lab-badge.red   { color: #f78166; border-color: rgba(247,129,102,0.25); background: rgba(247,129,102,0.06); }
+    .lab-badge.green { color: var(--accent); border-color: rgba(57,211,83,0.25); background: rgba(57,211,83,0.06); }
+    .lab-badge.blue  { color: var(--accent2); border-color: rgba(88,166,255,0.25); background: rgba(88,166,255,0.06); }
+    .lab-badge.gold  { color: var(--accent3); border-color: rgba(227,179,65,0.25); background: rgba(227,179,65,0.06); }
+
+    .lab-title { font-family: 'Syne', sans-serif; font-size: 0.93rem; font-weight: 700; margin-bottom: 0.55rem; }
+    .lab-desc { font-size: 0.77rem; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; flex: 1; }
+    .lab-tags { display: flex; flex-wrap: wrap; gap: 0.38rem; margin-bottom: 1rem; }
+    .lab-tag {
+      font-size: 0.62rem; padding: 0.18rem 0.5rem;
       border: 1px solid var(--border); border-radius: 2px;
-      color: var(--dim); letter-spacing: 0.06em; background: var(--bg);
+      color: var(--dim); background: var(--bg);
     }
+    .lab-link {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      font-size: 0.68rem; color: var(--muted); text-decoration: none;
+      letter-spacing: 0.08em; transition: color 0.2s;
+      margin-top: auto;
+    }
+    .lab-link:hover { color: var(--accent2); }
+    .lab-link i { font-size: 0.75rem; }
 
-    /* TIMELINE */
+    /* ── TIMELINE ── */
     .timeline { display: flex; flex-direction: column; }
     .timeline-item {
       display: grid; grid-template-columns: 180px 1fr;
       gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--border);
     }
     .timeline-item:last-child { border-bottom: none; }
-    .timeline-date { font-size: 0.7rem; color: var(--muted); padding-top: 0.2rem; letter-spacing: 0.05em; }
-    .timeline-date .current { display: inline-block; color: var(--accent); font-size: 0.63rem; letter-spacing: 0.1em; margin-top: 0.3rem; }
+    .timeline-date { font-size: 0.69rem; color: var(--muted); padding-top: 0.2rem; letter-spacing: 0.05em; }
+    .timeline-date .current { display: inline-block; color: var(--accent); font-size: 0.62rem; letter-spacing: 0.1em; margin-top: 0.3rem; }
     .timeline-body h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
-    .timeline-company { font-size: 0.75rem; color: var(--accent2); margin-bottom: 0.8rem; }
-    .timeline-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.88; }
+    .timeline-company { font-size: 0.74rem; color: var(--accent2); margin-bottom: 0.8rem; }
+    .timeline-desc { font-size: 0.77rem; color: var(--muted); line-height: 1.9; }
     .timeline-desc strong { color: var(--text); font-weight: 500; }
 
-    /* EDUCATION */
+    /* ── EDUCATION / CERTS ── */
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .edu-card {
-      padding: 1.5rem; background: var(--surface);
+      padding: 1.4rem; background: var(--surface);
       border: 1px solid var(--border); border-left: 3px solid var(--accent);
       border-radius: 0 3px 3px 0;
     }
-    .edu-year { font-size: 0.67rem; color: var(--muted); margin-bottom: 0.4rem; letter-spacing: 0.1em; }
-    .edu-degree { font-family: 'Syne', sans-serif; font-size: 0.93rem; font-weight: 700; margin-bottom: 0.3rem; }
-    .edu-school { font-size: 0.75rem; color: var(--accent2); }
+    .edu-year { font-size: 0.66rem; color: var(--muted); margin-bottom: 0.4rem; letter-spacing: 0.1em; }
+    .edu-degree { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .edu-school { font-size: 0.74rem; color: var(--accent2); }
 
-    .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
     .cert-card {
-      padding: 1.4rem; background: var(--surface);
+      padding: 1.3rem; background: var(--surface);
       border: 1px solid var(--border); border-radius: 3px; transition: all 0.2s;
     }
     .cert-card:hover { border-color: var(--accent2); transform: translateY(-2px); }
-    .cert-issuer { font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
-    .cert-name { font-family: 'Syne', sans-serif; font-size: 0.88rem; font-weight: 600; color: var(--text); }
+    .cert-issuer { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+    .cert-name { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--text); }
 
-    /* CONTACT */
+    /* ── CONTACT ── */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
     .contact-intro { font-size: 0.82rem; color: var(--muted); line-height: 1.9; }
     .contact-intro h2 { color: var(--text); margin-bottom: 1rem; }
     .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
     .contact-link {
       display: flex; align-items: center; gap: 1rem;
-      padding: 1rem 1.2rem; background: var(--surface);
+      padding: 0.95rem 1.2rem; background: var(--surface);
       border: 1px solid var(--border); border-radius: 3px;
-      text-decoration: none; color: var(--text); font-size: 0.78rem; transition: all 0.2s;
+      text-decoration: none; color: var(--text); font-size: 0.77rem; transition: all 0.2s;
     }
     .contact-link:hover { border-color: var(--accent); color: var(--accent); }
     .contact-link i { color: var(--accent2); width: 16px; text-align: center; flex-shrink: 0; }
 
     footer {
       border-top: 1px solid var(--border); padding: 2rem 3rem;
-      text-align: center; font-size: 0.67rem; color: var(--dim); letter-spacing: 0.1em;
+      text-align: center; font-size: 0.66rem; color: var(--dim); letter-spacing: 0.1em;
     }
 
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
+    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       #home, section { padding-left: 1.5rem; padding-right: 1.5rem; }
       .about-grid, .contact-grid, .edu-grid { grid-template-columns: 1fr; gap: 2rem; }
       .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
-      .hero-right { display: none; }
+      .hero-right, .hero-pillars { display: none; }
     }
   </style>
 </head>
@@ -269,73 +329,80 @@
     <ul class="nav-links">
       <li><a href="#about">Perfil</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#labs">Labs</a></li>
       <li><a href="#experience">Experiencia</a></li>
       <li><a href="#education">Formación</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
+  <!-- ══════════════════════════════ HERO ══════════════════════════════ -->
   <div id="home">
     <div class="hero-content reveal">
-      <div class="hero-tag">Disponible para nuevos roles</div>
+      <div class="hero-tag">Disponible</div>
       <h1>Alexander<br><span class="line2">López Salazar</span></h1>
+
+      <div class="hero-pillars">
+        <div class="hero-pillar green"><i class="fa-solid fa-server"></i> Infraestructura</div>
+        <div class="hero-pillar blue"><i class="fa-solid fa-shield-halved"></i> Seguridad Defensiva</div>
+        <div class="hero-pillar gold"><i class="fa-solid fa-file-shield"></i> GRC</div>
+      </div>
 
       <div class="hero-value">
         <p>
-          <strong>Ingeniero de Sistemas con énfasis en infraestructura crítica y seguridad defensiva.</strong>
-          Diseño y opero entornos híbridos — On-premise, virtualizado y multinube — donde la disponibilidad no es negociable y la superficie de ataque tiene que ser la mínima posible.
+          <strong>Ingeniero de Sistemas operando en los tres frentes de la seguridad práctica:</strong>
+          administración de infraestructura crítica, operación de controles defensivos y documentación de cumplimiento normativo contra marcos reales. No trabajo un frente en aislado, los tres están conectados.
         </p>
         <p>
-          Mi trabajo consiste en reducir el tiempo de detección y respuesta ante incidentes, endurecer arquitecturas de red y servidor, y garantizar que los servicios esenciales sigan funcionando cuando algo sale mal. No solo los apago: entiendo por qué fallaron.
+          Diseño entornos híbridos donde el hardening de servidores, la segmentación de red y la respuesta ante incidentes responden al mismo modelo de riesgo que levanto en <strong>ISO 27001:2022, NIST CSF 2.0 y CIS Controls v8</strong>. Lo que detecto en el laboratorio lo documento en GRC. Lo que el framework exige lo valido en el entorno real.
         </p>
       </div>
 
       <div class="hero-badges">
-        <span class="badge">Infraestructura Híbrida</span>
+        <span class="badge">Infra On-premise & Cloud</span>
         <span class="badge">Seguridad Defensiva</span>
-        <span class="badge">Sysadmin Linux / Windows</span>
-        <span class="badge">SIEM · EDR · WAF</span>
-        <span class="badge">ISO 27001 · 27035</span>
+        <span class="badge">ISO 27001:2022</span>
+        <span class="badge">NIST CSF 2.0</span>
+        <span class="badge">CIS Controls v8</span>
+        <span class="badge">CISO Assistant</span>
+        <span class="badge">Wazuh · Greenbone</span>
         <span class="badge">RHCSA</span>
-        <span class="badge">Azure · AWS</span>
         <span class="badge">FortiGate · OPNsense</span>
       </div>
 
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Contactar</a>
-        <a href="#projects" class="btn btn-outline"><i class="fa-solid fa-terminal"></i> Ver proyectos</a>
+        <a href="#labs" class="btn btn-outline"><i class="fa-solid fa-flask"></i> Ver laboratorios</a>
       </div>
     </div>
 
     <div class="hero-right">
-[firewall]      ACTIVE
-[EDR]           RUNNING
+[ISO 27001]     IMPLEMENTED
+[NIST CSF 2.0]  MAPPED
+[CIS v8]        IN PROGRESS
+[Wazuh]         MONITORING
+[Greenbone]     SCANNING
+[OPNsense]      ENFORCING
 [SIEM]          CONNECTED
-[ISO 27001]     ALIGNED
-[RHCSA]         CERTIFIED
-[AD / Entra ID] MANAGED
-[uptime]        99.9%
-[incidents]     RESOLVED
 [hardening]     APPLIED
+[uptime]        99.9%
     </div>
   </div>
 
-  <!-- ABOUT -->
+  <!-- ══════════════════════════════ ABOUT ══════════════════════════════ -->
   <section id="about">
     <div class="section-label"><span>// 01 — Perfil</span></div>
     <div class="about-grid reveal">
       <div class="about-text">
         <h2>Sobre mí</h2>
         <p>
-          Llevo más de diez años administrando infraestructura en producción para entornos donde los errores tienen costo real. He operado NOC y SOC en simultáneo, coordinado respuesta ante incidentes bajo ISO/IEC 27035 y diseñado arquitecturas de seguridad perimetral que van desde la segmentación de red hasta la detección temprana de amenazas.
+          Llevo más de diez años administrando infraestructura en producción con costo operativo real. He operado NOC y SOC en simultáneo, gestionado incidentes bajo NIST SP 800-61 y diseñado arquitecturas de seguridad perimetral que van desde la segmentación de red hasta la detección temprana de amenazas.
         </p>
         <p>
-          Mi perfil combina criterio técnico de sysadmin con visión de seguridad defensiva: entiendo cómo funciona la infraestructura que tengo que proteger, y eso cambia la forma en que la protejo. No aplico controles por cumplimiento; los aplico porque conozco el vector.
+          Mi diferencial está en la conexión entre capas: analizo la arquitectura de forma holística, entiendo la infraestructura que tengo que proteger, opero los controles que la protegen y documento el estado de cumplimiento contra frameworks establecidos usando CISO Assistant como plataforma GRC. Cuando aplico un control de CIS Controls v8, ya sé cuál es el vector que mitiga y cómo se evidencia en el entorno.
         </p>
         <p>
-          Actualmente coordino controles de acceso, hardening de servidores y la operación de una plataforma de seguridad que incluye firewall, WAF, SIEM y EDR sobre infraestructura híbrida con Active Directory y Entra ID.
+          En mi homelab ejecuto un ciclo continuo: simulo vectores de ataque sobre entornos vulnerables controlados, detecto y mitigo con herramientas de producción, y levanto los hallazgos directamente en el módulo de cumplimiento normativo. El laboratorio es mi banco de pruebas para lo que después aplico en producción.
         </p>
       </div>
       <div class="about-info">
@@ -345,118 +412,429 @@
         </div>
         <div class="info-item">
           <i class="fa-solid fa-envelope"></i>
-          <div><div class="label">Email</div><div class="val">contacto@lopezsalexander.com</div></div>
+          <div><div class="label">Email</div><div class="val" id="about-email">—</div></div>
         </div>
         <div class="info-item">
           <i class="fa-solid fa-phone"></i>
-          <div><div class="label">Teléfono</div><div class="val">+57 313 474 6906</div></div>
+          <div><div class="label">Teléfono</div><div class="val" id="about-phone">—</div></div>
         </div>
         <div class="info-item">
           <i class="fa-solid fa-language"></i>
           <div><div class="label">Idiomas</div><div class="val">Español nativo · Inglés B2</div></div>
         </div>
-        <div class="info-item">
-          <i class="fa-solid fa-heart"></i>
-          <div><div class="label">Intereses</div><div class="val">Fútbol · Cine · Música · Podcasts</div></div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- ══════════════════════════════ SKILLS ══════════════════════════════ -->
   <section id="skills">
     <div class="section-label"><span>// 02 — Stack técnico</span></div>
     <h2 class="reveal" style="margin-bottom:2rem;">Herramientas y plataformas</h2>
-    <div class="skills-grid reveal">
-      <div class="skill-item"><i class="fa-solid fa-shield-halved"></i> Seguridad Defensiva</div>
-      <div class="skill-item"><i class="fa-solid fa-network-wired"></i> Redes & Perímetro</div>
-      <div class="skill-item"><i class="fa-solid fa-eye"></i> SIEM / SOC / NOC</div>
-      <div class="skill-item"><i class="fa-solid fa-bug-slash"></i> EDR & WAF</div>
-      <div class="skill-item"><i class="fa-brands fa-linux"></i> Linux · RHCSA</div>
-      <div class="skill-item"><i class="fa-brands fa-windows"></i> Windows Server · AD · Entra ID</div>
-      <div class="skill-item"><i class="fa-solid fa-cloud"></i> Microsoft Azure</div>
-      <div class="skill-item"><i class="fa-brands fa-aws"></i> Amazon Web Services</div>
-      <div class="skill-item"><i class="fa-brands fa-docker"></i> Docker · Virtualización</div>
-      <div class="skill-item"><i class="fa-solid fa-fire-flame-curved"></i> FortiGate · OPNsense</div>
-      <div class="skill-item"><i class="fa-solid fa-route"></i> Mikrotik · VLANs</div>
-      <div class="skill-item"><i class="fa-solid fa-database"></i> Backup & Continuidad</div>
-      <div class="skill-item"><i class="fa-brands fa-python"></i> Python Scripting</div>
-      <div class="skill-item"><i class="fa-solid fa-lock"></i> Hardening & Compliance</div>
-      <div class="skill-item"><i class="fa-solid fa-file-shield"></i> ISO 27001 · ISO 27035</div>
-      <div class="skill-item"><i class="fa-solid fa-server"></i> Proxmox · Hyper-V</div>
+
+    <div class="skills-block reveal">
+      <div class="skills-block-title">Infraestructura & Sistemas</div>
+      <div class="skills-grid">
+        <div class="skill-item green"><i class="fa-brands fa-linux"></i> Linux · Ubuntu · OpenSUSE</div>
+        <div class="skill-item green"><i class="fa-brands fa-windows"></i> Windows Server · AD · Entra ID</div>
+        <div class="skill-item green"><i class="fa-solid fa-server"></i> VMware · Proxmox · Hyper-V</div>
+        <div class="skill-item green"><i class="fa-brands fa-docker"></i> Docker · LXC</div>
+        <div class="skill-item green"><i class="fa-solid fa-cloud"></i> Microsoft Azure</div>
+        <div class="skill-item green"><i class="fa-brands fa-aws"></i> Amazon Web Services</div>
+        <div class="skill-item green"><i class="fa-solid fa-database"></i> Backup & Continuidad</div>
+        <div class="skill-item green"><i class="fa-brands fa-python"></i> Python Scripting</div>
+      </div>
+    </div>
+
+    <div class="skills-block reveal">
+      <div class="skills-block-title">Redes & Seguridad Perimetral</div>
+      <div class="skills-grid">
+        <div class="skill-item blue"><i class="fa-solid fa-network-wired"></i> VLANs · Segmentación</div>
+        <div class="skill-item blue"><i class="fa-solid fa-fire-flame-curved"></i> FortiGate · OPNsense</div>
+        <div class="skill-item blue"><i class="fa-solid fa-route"></i> Mikrotik · Advance Routing</div>
+        <div class="skill-item blue"><i class="fa-solid fa-filter"></i> DNS Management & filtering</div>
+        <div class="skill-item blue"><i class="fa-solid fa-globe-americas"></i> WAF · Web Hardening</div>
+        <div class="skill-item blue"><i class="fa-solid fa-lock"></i> VPN · Zero Trust</div>
+      </div>
+    </div>
+
+    <div class="skills-block reveal">
+      <div class="skills-block-title">Detección · Monitoreo · Respuesta</div>
+      <div class="skills-grid">
+        <div class="skill-item blue"><i class="fa-solid fa-eye"></i> Wazuh (SIEM/XDR)</div>
+        <div class="skill-item blue"><i class="fa-solid fa-bug-slash"></i> Greenbone · OpenVAS</div>
+        <div class="skill-item blue"><i class="fa-solid fa-tower-broadcast"></i> NOC / SOC</div>
+        <div class="skill-item blue"><i class="fa-solid fa-shield-halved"></i> EDR · FIM · NDR</div>
+      </div>
+    </div>
+
+    <div class="skills-block reveal">
+      <div class="skills-block-title">GRC · Normativa · Cumplimiento</div>
+      <div class="skills-grid">
+        <div class="skill-item gold"><i class="fa-solid fa-file-shield"></i> ISO/IEC 27001:2022</div>
+        <div class="skill-item gold"><i class="fa-solid fa-diagram-project"></i> NIST CSF 2.0</div>
+        <div class="skill-item gold"><i class="fa-solid fa-list-check"></i> CIS Controls v8</div>
+        <div class="skill-item gold"><i class="fa-solid fa-circle-nodes"></i> CISO Assistant</div>
+        <div class="skill-item gold"><i class="fa-solid fa-magnifying-glass-chart"></i> Análisis de brechas</div>
+        <div class="skill-item gold"><i class="fa-solid fa-clipboard-check"></i> NIST SP 800-61· Incidentes</div>
+      </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-label"><span>// 03 — Proyectos técnicos</span></div>
-    <h2 class="reveal" style="margin-bottom:0.5rem;">Laboratorio y arquitectura</h2>
-    <p class="reveal" style="color:var(--muted);font-size:0.8rem;margin-bottom:2.5rem;max-width:600px;line-height:1.85;">
-      Proyectos de diseño e implementación en entornos controlados, orientados a validar arquitecturas de seguridad y operación de infraestructura.
+  <!-- ══════════════════════════════ LABS ══════════════════════════════ -->
+  <section id="labs">
+    <div class="section-label"><span>// 03 — Laboratorios</span></div>
+    <h2 class="reveal" style="margin-bottom:0.5rem;">Homelab & proyectos técnicos</h2>
+    <p class="reveal" style="color:var(--muted);font-size:0.8rem;margin-bottom:3rem;max-width:660px;line-height:1.88;">
+      Entorno de laboratorio personal organizado en tres frentes: simulación de vectores de ataque sobre entornos vulnerables controlados, detección y mitigación con herramientas de producción, y documentación de hallazgos contra frameworks de cumplimiento. Lo que pruebo aquí lo aplico en producción.
     </p>
-    <div class="projects-grid">
 
-      <div class="project-card reveal">
-        <div class="project-icon"><i class="fa-solid fa-cubes"></i></div>
-        <div class="project-title">Laboratorio defensivo virtualizado</div>
-        <p class="project-desc">
-          Diseño e implementación de un laboratorio sobre Proxmox con múltiples VMs para simular entornos corporativos reales. Incluye instancias de Active Directory, servidores Linux, nodos de monitoreo y segmentos de red aislados para análisis de amenazas sin riesgo de contaminación lateral.
-        </p>
-        <div class="project-tags">
-          <span class="project-tag">Proxmox VE</span>
-          <span class="project-tag">Active Directory</span>
-          <span class="project-tag">Virtualización</span>
-          <span class="project-tag">Network isolation</span>
+    <!-- GRUPO 1: Entornos vulnerables y ataque -->
+    <div class="lab-group-title"><span>Simulación y evaluación de vulnerabilidades</span></div>
+    <div class="labs-grid">
+
+      <div class="lab-card reveal">
+        <div class="lab-img">
+          <!-- SVG: Target / vulnerable environment -->
+          <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="320" height="130" fill="#080c10"/>
+            <!-- Grid -->
+            <line x1="0" y1="65" x2="320" y2="65" stroke="#21262d" stroke-width="0.5"/>
+            <line x1="160" y1="0" x2="160" y2="130" stroke="#21262d" stroke-width="0.5"/>
+            <!-- Concentric circles target -->
+            <circle cx="160" cy="65" r="55" fill="none" stroke="#f78166" stroke-width="0.8" opacity="0.3"/>
+            <circle cx="160" cy="65" r="38" fill="none" stroke="#f78166" stroke-width="0.8" opacity="0.5"/>
+            <circle cx="160" cy="65" r="22" fill="none" stroke="#f78166" stroke-width="1" opacity="0.7"/>
+            <circle cx="160" cy="65" r="8"  fill="#f78166" opacity="0.85"/>
+            <!-- Crosshair lines -->
+            <line x1="105" y1="65" x2="140" y2="65" stroke="#f78166" stroke-width="0.8" opacity="0.6"/>
+            <line x1="180" y1="65" x2="215" y2="65" stroke="#f78166" stroke-width="0.8" opacity="0.6"/>
+            <line x1="160" y1="10"  x2="160" y2="45"  stroke="#f78166" stroke-width="0.8" opacity="0.6"/>
+            <line x1="160" y1="85"  x2="160" y2="120" stroke="#f78166" stroke-width="0.8" opacity="0.6"/>
+            <!-- Labels -->
+            <text x="12" y="16" font-family="monospace" font-size="7" fill="#f78166" opacity="0.7">DVWA</text>
+            <text x="12" y="28" font-family="monospace" font-size="7" fill="#8b949e" opacity="0.6">Metasploitable</text>
+            <text x="12" y="40" font-family="monospace" font-size="7" fill="#8b949e" opacity="0.6">VulnHub VMs</text>
+            <text x="240" y="16" font-family="monospace" font-size="7" fill="#f78166" opacity="0.7" text-anchor="end">Kali Linux</text>
+            <text x="308" y="28" font-family="monospace" font-size="7" fill="#8b949e" opacity="0.6" text-anchor="end">attack vectors</text>
+          </svg>
+        </div>
+        <div class="lab-body">
+          <span class="lab-badge red">Ataque controlado</span>
+          <div class="lab-title">Entornos vulnerables y vectores de ataque</div>
+          <p class="lab-desc">
+            Laboratorio con DVWA, Metasploitable y VMs vulnerables personalizadas sobre red aislada. Uso Kali Linux para ejecutar vectores de ataque reales — inyección SQL, XSS, escalada de privilegios, movimiento lateral — con el objetivo de entender el vector antes de mitigarlo. El ataque no es el fin, es el punto de partida.
+          </p>
+          <div class="lab-tags">
+            <span class="lab-tag">DVWA</span>
+            <span class="lab-tag">Kali Linux</span>
+            <span class="lab-tag">Metasploitable</span>
+            <span class="lab-tag">Red aislada</span>
+            <span class="lab-tag">Proxmox VE</span>
+          </div>
+          <a href="https://github.com/lopezsalexander" target="_blank" class="lab-link">
+            <i class="fa-brands fa-github"></i> Ver repositorio
+          </a>
         </div>
       </div>
 
-      <div class="project-card reveal">
-        <div class="project-icon"><i class="fa-solid fa-sitemap"></i></div>
-        <div class="project-title">Segmentación de red con VLANs y FortiGate</div>
-        <p class="project-desc">
-          Diseño de arquitectura de red segmentada por zonas funcionales: usuarios, servidores, DMZ y gestión. Implementación de políticas de firewall en FortiGate para control de tráfico inter-VLAN, con reglas de denegación implícita y logging centralizado de flujos.
-        </p>
-        <div class="project-tags">
-          <span class="project-tag">FortiGate</span>
-          <span class="project-tag">VLANs 802.1Q</span>
-          <span class="project-tag">DMZ</span>
-          <span class="project-tag">Firewall policies</span>
+      <div class="lab-card reveal">
+        <div class="lab-img">
+          <!-- SVG: Scanner / OpenVAS -->
+          <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="320" height="130" fill="#080c10"/>
+            <!-- Scan beam animation area -->
+            <defs>
+              <linearGradient id="scanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#58a6ff" stop-opacity="0"/>
+                <stop offset="50%" stop-color="#58a6ff" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- Background hosts -->
+            <rect x="20"  y="45" width="28" height="20" rx="2" fill="#161b22" stroke="#21262d" stroke-width="0.8"/>
+            <rect x="60"  y="38" width="28" height="27" rx="2" fill="#161b22" stroke="#21262d" stroke-width="0.8"/>
+            <rect x="100" y="42" width="28" height="23" rx="2" fill="#161b22" stroke="#f78166" stroke-width="0.8"/>
+            <rect x="140" y="35" width="28" height="30" rx="2" fill="#161b22" stroke="#21262d" stroke-width="0.8"/>
+            <rect x="180" y="45" width="28" height="20" rx="2" fill="#161b22" stroke="#e3b341" stroke-width="0.8"/>
+            <rect x="220" y="40" width="28" height="25" rx="2" fill="#161b22" stroke="#21262d" stroke-width="0.8"/>
+            <rect x="260" y="48" width="28" height="18" rx="2" fill="#161b22" stroke="#21262d" stroke-width="0.8"/>
+            <!-- Scan line -->
+            <rect x="0" y="0" width="320" height="130" fill="url(#scanGrad)" opacity="0.6"/>
+            <!-- Labels -->
+            <text x="100" y="73" font-family="monospace" font-size="6" fill="#f78166" text-anchor="middle">CRIT</text>
+            <text x="180" y="73" font-family="monospace" font-size="6" fill="#e3b341" text-anchor="middle">MED</text>
+            <!-- Bottom bar -->
+            <rect x="0" y="100" width="320" height="30" fill="#0d1117"/>
+            <text x="12" y="114" font-family="monospace" font-size="6.5" fill="#58a6ff">OpenVAS scan running...</text>
+            <text x="12" y="124" font-family="monospace" font-size="6" fill="#8b949e">CVEs: 3 critical · 7 medium · 12 low</text>
+            <rect x="200" y="107" width="60" height="6" rx="1" fill="#21262d"/>
+            <rect x="200" y="107" width="42" height="6" rx="1" fill="#58a6ff" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="lab-body">
+          <span class="lab-badge blue">Vulnerability Assessment</span>
+          <div class="lab-title">Evaluación con Greenbone / OpenVAS</div>
+          <p class="lab-desc">
+            Assessment de vulnerabilidades sobre los entornos del laboratorio con Greenbone Community Edition. Comparo resultados con los que ya genera Wazuh para tener dos perspectivas: el agente interno (FIM, parches, configuración) y el scanner externo (CVEs, servicios expuestos, configuraciones débiles). Cada hallazgo queda documentado.
+          </p>
+          <div class="lab-tags">
+            <span class="lab-tag">Greenbone CE</span>
+            <span class="lab-tag">OpenVAS</span>
+            <span class="lab-tag">CVE triage</span>
+            <span class="lab-tag">Wazuh</span>
+            <span class="lab-tag">Patch management</span>
+          </div>
+          <a href="https://github.com/lopezsalexander" target="_blank" class="lab-link">
+            <i class="fa-brands fa-github"></i> Ver repositorio
+          </a>
         </div>
       </div>
 
-      <div class="project-card reveal">
-        <div class="project-icon"><i class="fa-solid fa-flask"></i></div>
-        <div class="project-title">Entornos aislados para análisis de seguridad</div>
-        <p class="project-desc">
-          Construcción de sandbox con redes internas sin salida a Internet para análisis estático y dinámico de artefactos sospechosos. Snapshots automáticos para rollback limpio post-análisis. Integración con herramientas de captura de tráfico para correlación de comportamiento.
-        </p>
-        <div class="project-tags">
-          <span class="project-tag">Sandbox</span>
-          <span class="project-tag">Análisis de malware</span>
-          <span class="project-tag">Wireshark</span>
-          <span class="project-tag">Snapshots</span>
+    </div>
+
+    <!-- GRUPO 2: Detección y mitigación -->
+    <div class="lab-group-title" style="margin-top:2.5rem;"><span>Detección, mitigación y control de red</span></div>
+    <div class="labs-grid">
+
+      <div class="lab-card reveal">
+        <div class="lab-img">
+          <!-- SVG: Wazuh / SIEM dashboard -->
+          <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="320" height="130" fill="#080c10"/>
+            <!-- Header bar -->
+            <rect x="0" y="0" width="320" height="22" fill="#0d1117"/>
+            <text x="10" y="14" font-family="monospace" font-size="7.5" fill="#39d353" font-weight="bold">WAZUH</text>
+            <text x="75" y="14" font-family="monospace" font-size="6.5" fill="#8b949e">Security Events · Last 24h</text>
+            <circle cx="295" cy="11" r="4" fill="#39d353" opacity="0.8"/>
+            <!-- Chart bars -->
+            <rect x="14"  y="90" width="12" height="20" rx="1" fill="#39d353" opacity="0.4"/>
+            <rect x="30"  y="72" width="12" height="38" rx="1" fill="#39d353" opacity="0.5"/>
+            <rect x="46"  y="60" width="12" height="50" rx="1" fill="#39d353" opacity="0.6"/>
+            <rect x="62"  y="78" width="12" height="32" rx="1" fill="#39d353" opacity="0.5"/>
+            <rect x="78"  y="55" width="12" height="55" rx="1" fill="#e3b341" opacity="0.7"/>
+            <rect x="94"  y="82" width="12" height="28" rx="1" fill="#39d353" opacity="0.4"/>
+            <rect x="110" y="65" width="12" height="45" rx="1" fill="#39d353" opacity="0.5"/>
+            <rect x="126" y="48" width="12" height="62" rx="1" fill="#f78166" opacity="0.8"/>
+            <rect x="142" y="70" width="12" height="40" rx="1" fill="#39d353" opacity="0.5"/>
+            <rect x="158" y="80" width="12" height="30" rx="1" fill="#39d353" opacity="0.4"/>
+            <!-- Right panel -->
+            <rect x="192" y="28" width="118" height="82" rx="2" fill="#0d1117" stroke="#21262d" stroke-width="0.7"/>
+            <text x="200" y="40"  font-family="monospace" font-size="6" fill="#8b949e">FIM · File integrity</text>
+            <text x="200" y="52"  font-family="monospace" font-size="6" fill="#8b949e">SCA · Config audit</text>
+            <text x="200" y="64"  font-family="monospace" font-size="6" fill="#8b949e">Vuln · CVE detect</text>
+            <text x="200" y="76"  font-family="monospace" font-size="6" fill="#e3b341">! Patch missing: 3</text>
+            <text x="200" y="88"  font-family="monospace" font-size="6" fill="#f78166">! Alert: priv-esc</text>
+            <text x="200" y="100" font-family="monospace" font-size="6" fill="#39d353">✓ Active response</text>
+          </svg>
+        </div>
+        <div class="lab-body">
+          <span class="lab-badge green">Detección & Respuesta</span>
+          <div class="lab-title">Stack defensivo con Wazuh</div>
+          <p class="lab-desc">
+            Wazuh como plataforma central de detección: agentes sobre VMs Linux y Windows, monitoreo de integridad de archivos (FIM), auditoría de configuración (SCA), detección de vulnerabilidades con CVE correlation y respuesta activa ante alertas. Los eventos generados por los ataques del lab anterior llegan aquí — eso cierra el ciclo.
+          </p>
+          <div class="lab-tags">
+            <span class="lab-tag">Wazuh SIEM/XDR</span>
+            <span class="lab-tag">FIM</span>
+            <span class="lab-tag">SCA</span>
+            <span class="lab-tag">Active response</span>
+            <span class="lab-tag">CVE detection</span>
+          </div>
+          <a href="https://github.com/lopezsalexander" target="_blank" class="lab-link">
+            <i class="fa-brands fa-github"></i> Ver repositorio
+          </a>
         </div>
       </div>
 
-      <div class="project-card reveal">
-        <div class="project-icon"><i class="fa-solid fa-route"></i></div>
-        <div class="project-title">Ruteo y control de tráfico con OPNsense y Mikrotik</div>
-        <p class="project-desc">
-          Implementación de escenarios de ruteo avanzado combinando OPNsense como firewall perimetral y Mikrotik para control de tráfico interno. Configuración de políticas de QoS, reglas de NAT, VPN site-to-site y monitoreo de ancho de banda por segmento.
-        </p>
-        <div class="project-tags">
-          <span class="project-tag">OPNsense</span>
-          <span class="project-tag">Mikrotik</span>
-          <span class="project-tag">VPN</span>
-          <span class="project-tag">QoS</span>
-          <span class="project-tag">NAT</span>
+      <div class="lab-card reveal">
+        <div class="lab-img">
+          <!-- SVG: OPNsense + AdGuard network diagram -->
+          <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="320" height="130" fill="#080c10"/>
+            <!-- Internet cloud -->
+            <ellipse cx="40" cy="45" rx="28" ry="18" fill="#0d1117" stroke="#21262d" stroke-width="0.8"/>
+            <text x="40" y="48" font-family="monospace" font-size="6.5" fill="#8b949e" text-anchor="middle">Internet</text>
+            <!-- Arrow to OPNsense -->
+            <line x1="68" y1="45" x2="98" y2="45" stroke="#58a6ff" stroke-width="1" marker-end="url(#arr)"/>
+            <defs>
+              <marker id="arr" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+                <polygon points="0 0,5 2.5,0 5" fill="#58a6ff"/>
+              </marker>
+            </defs>
+            <!-- OPNsense box -->
+            <rect x="100" y="33" width="50" height="24" rx="2" fill="#0d1117" stroke="#58a6ff" stroke-width="1"/>
+            <text x="125" y="43" font-family="monospace" font-size="6.5" fill="#58a6ff" text-anchor="middle" font-weight="bold">OPNsense</text>
+            <text x="125" y="52" font-family="monospace" font-size="5.5" fill="#8b949e" text-anchor="middle">firewall · rules</text>
+            <!-- Arrow to AdGuard -->
+            <line x1="150" y1="45" x2="178" y2="45" stroke="#39d353" stroke-width="1" marker-end="url(#arr2)"/>
+            <defs>
+              <marker id="arr2" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+                <polygon points="0 0,5 2.5,0 5" fill="#39d353"/>
+              </marker>
+            </defs>
+            <!-- AdGuard -->
+            <rect x="180" y="33" width="50" height="24" rx="2" fill="#0d1117" stroke="#39d353" stroke-width="1"/>
+            <text x="205" y="43" font-family="monospace" font-size="6" fill="#39d353" text-anchor="middle" font-weight="bold">AdGuard</text>
+            <text x="205" y="52" font-family="monospace" font-size="5.5" fill="#8b949e" text-anchor="middle">DNS filter</text>
+            <!-- VLANs below -->
+            <line x1="205" y1="57" x2="205" y2="72" stroke="#21262d" stroke-width="0.8"/>
+            <line x1="90" y1="72" x2="280" y2="72" stroke="#21262d" stroke-width="0.8"/>
+            <line x1="110" y1="72" x2="110" y2="85" stroke="#21262d" stroke-width="0.8"/>
+            <line x1="170" y1="72" x2="170" y2="85" stroke="#21262d" stroke-width="0.8"/>
+            <line x1="230" y1="72" x2="230" y2="85" stroke="#21262d" stroke-width="0.8"/>
+            <line x1="270" y1="72" x2="270" y2="85" stroke="#21262d" stroke-width="0.8"/>
+            <!-- VLAN boxes -->
+            <rect x="86"  y="85" width="48" height="18" rx="1" fill="#0d1117" stroke="#30363d" stroke-width="0.7"/>
+            <text x="110" y="97" font-family="monospace" font-size="5.5" fill="#8b949e" text-anchor="middle">VLAN Users</text>
+            <rect x="146" y="85" width="48" height="18" rx="1" fill="#0d1117" stroke="#30363d" stroke-width="0.7"/>
+            <text x="170" y="97" font-family="monospace" font-size="5.5" fill="#8b949e" text-anchor="middle">VLAN Servers</text>
+            <rect x="206" y="85" width="48" height="18" rx="1" fill="#0d1117" stroke="#f78166" stroke-width="0.7"/>
+            <text x="230" y="97" font-family="monospace" font-size="5.5" fill="#f78166" text-anchor="middle">DMZ · Lab</text>
+            <rect x="246" y="85" width="48" height="18" rx="1" fill="#0d1117" stroke="#30363d" stroke-width="0.7"/>
+            <text x="270" y="97" font-family="monospace" font-size="5.5" fill="#8b949e" text-anchor="middle">VLAN Mgmt</text>
+            <!-- Blocked DNS -->
+            <line x1="40" y1="60" x2="40" y2="105" stroke="#21262d" stroke-width="0.5" stroke-dasharray="3,2"/>
+            <text x="40" y="114" font-family="monospace" font-size="5.5" fill="#f78166" text-anchor="middle">DNS blocked</text>
+          </svg>
+        </div>
+        <div class="lab-body">
+          <span class="lab-badge blue">Perímetro & Red</span>
+          <div class="lab-title">OPNsense + AdGuard Home — control de tráfico</div>
+          <p class="lab-desc">
+            Arquitectura de red con OPNsense como firewall perimetral con reglas granulares por VLAN, IDS/IPS activo y logging de flujos. AdGuard Home como DNS resolver para filtrado de dominios maliciosos, tracking y exfiltración por DNS. Las reglas de red reflejan directamente los controles del framework que estoy implementando en GRC.
+          </p>
+          <div class="lab-tags">
+            <span class="lab-tag">OPNsense</span>
+            <span class="lab-tag">AdGuard Home</span>
+            <span class="lab-tag">VLANs 802.1Q</span>
+            <span class="lab-tag">IDS/IPS</span>
+            <span class="lab-tag">DNS filtering</span>
+          </div>
+          <a href="https://github.com/lopezsalexander" target="_blank" class="lab-link">
+            <i class="fa-brands fa-github"></i> Ver repositorio
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GRUPO 3: GRC -->
+    <div class="lab-group-title" style="margin-top:2.5rem;"><span>GRC · Documentación de cumplimiento</span></div>
+    <div class="labs-grid">
+
+      <div class="lab-card reveal">
+        <div class="lab-img">
+          <!-- SVG: CISO Assistant / GRC dashboard -->
+          <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="320" height="130" fill="#080c10"/>
+            <!-- Header -->
+            <rect x="0" y="0" width="320" height="22" fill="#0d1117"/>
+            <text x="10" y="14" font-family="monospace" font-size="7" fill="#e3b341" font-weight="bold">CISO Assistant</text>
+            <text x="105" y="14" font-family="monospace" font-size="6" fill="#8b949e">GRC Platform</text>
+            <!-- Framework tabs -->
+            <rect x="8"  y="26" width="62" height="14" rx="1" fill="#e3b341" opacity="0.15" stroke="#e3b341" stroke-width="0.6"/>
+            <text x="39" y="36" font-family="monospace" font-size="5.5" fill="#e3b341" text-anchor="middle">ISO 27001:2022</text>
+            <rect x="74" y="26" width="52" height="14" rx="1" fill="#21262d"/>
+            <text x="100" y="36" font-family="monospace" font-size="5.5" fill="#8b949e" text-anchor="middle">NIST CSF 2.0</text>
+            <rect x="130" y="26" width="50" height="14" rx="1" fill="#21262d"/>
+            <text x="155" y="36" font-family="monospace" font-size="5.5" fill="#8b949e" text-anchor="middle">CIS Controls v8</text>
+            <!-- Progress bars -->
+            <text x="8" y="58" font-family="monospace" font-size="5.5" fill="#8b949e">Anexo A · Controles</text>
+            <rect x="8" y="61" width="180" height="5" rx="1" fill="#21262d"/>
+            <rect x="8" y="61" width="108" height="5" rx="1" fill="#e3b341" opacity="0.7"/>
+            <text x="195" y="66" font-family="monospace" font-size="5.5" fill="#e3b341">60%</text>
+
+            <text x="8" y="78" font-family="monospace" font-size="5.5" fill="#8b949e">Gestión de riesgos</text>
+            <rect x="8" y="81" width="180" height="5" rx="1" fill="#21262d"/>
+            <rect x="8" y="81" width="144" height="5" rx="1" fill="#39d353" opacity="0.7"/>
+            <text x="195" y="86" font-family="monospace" font-size="5.5" fill="#39d353">80%</text>
+
+            <text x="8" y="98" font-family="monospace" font-size="5.5" fill="#8b949e">Seguridad física</text>
+            <rect x="8" y="101" width="180" height="5" rx="1" fill="#21262d"/>
+            <rect x="8" y="101" width="54" height="5" rx="1" fill="#f78166" opacity="0.7"/>
+            <text x="195" y="106" font-family="monospace" font-size="5.5" fill="#f78166">30%</text>
+
+            <!-- Right side: findings -->
+            <rect x="232" y="26" width="80" height="90" rx="2" fill="#0d1117" stroke="#21262d" stroke-width="0.7"/>
+            <text x="272" y="37" font-family="monospace" font-size="5.5" fill="#8b949e" text-anchor="middle">Findings</text>
+            <text x="240" y="50" font-family="monospace" font-size="5.5" fill="#f78166">● 4 critical</text>
+            <text x="240" y="62" font-family="monospace" font-size="5.5" fill="#e3b341">● 9 medium</text>
+            <text x="240" y="74" font-family="monospace" font-size="5.5" fill="#39d353">● 21 low</text>
+            <text x="240" y="86" font-family="monospace" font-size="5.5" fill="#8b949e">● 14 info</text>
+            <line x1="240" y1="95" x2="304" y2="95" stroke="#21262d" stroke-width="0.6"/>
+            <text x="272" y="106" font-family="monospace" font-size="5.5" fill="#39d353" text-anchor="middle">12 remediated</text>
+          </svg>
+        </div>
+        <div class="lab-body">
+          <span class="lab-badge gold">GRC · ISO 27001</span>
+          <div class="lab-title">CISO Assistant — implementación ISO 27001:2022</div>
+          <p class="lab-desc">
+            Uso CISO Assistant como plataforma GRC para mapear el estado de implementación de ISO/IEC 27001:2022 sobre mi homelab. Cada control del Anexo A se evalúa contra la evidencia real del entorno: configuraciones, logs, políticas y hallazgos de vulnerabilidades. Los gaps quedan registrados como findings con plan de remediación.
+          </p>
+          <div class="lab-tags">
+            <span class="lab-tag">CISO Assistant</span>
+            <span class="lab-tag">ISO 27001:2022</span>
+            <span class="lab-tag">Anexo A</span>
+            <span class="lab-tag">Risk assessment</span>
+            <span class="lab-tag">Gap analysis</span>
+          </div>
+          <a href="https://github.com/lopezsalexander" target="_blank" class="lab-link">
+            <i class="fa-brands fa-github"></i> Ver repositorio
+          </a>
+        </div>
+      </div>
+
+      <div class="lab-card reveal">
+        <div class="lab-img">
+          <!-- SVG: CIS Controls checklist -->
+          <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="320" height="130" fill="#080c10"/>
+            <!-- Header -->
+            <rect x="0" y="0" width="320" height="22" fill="#0d1117"/>
+            <text x="10" y="14" font-family="monospace" font-size="7" fill="#e3b341" font-weight="bold">CIS Controls v8</text>
+            <text x="120" y="14" font-family="monospace" font-size="6" fill="#8b949e">Implementation Group 1</text>
+            <!-- Controls list -->
+            <text x="10" y="36" font-family="monospace" font-size="6" fill="#39d353">✓ CG1 — Inventory of Enterprise Assets</text>
+            <text x="10" y="48" font-family="monospace" font-size="6" fill="#39d353">✓ CG2 — Inventory of Software Assets</text>
+            <text x="10" y="60" font-family="monospace" font-size="6" fill="#39d353">✓ CG3 — Data Protection</text>
+            <text x="10" y="72" font-family="monospace" font-size="6" fill="#e3b341">◑ CG4 — Secure Configuration</text>
+            <text x="10" y="84" font-family="monospace" font-size="6" fill="#e3b341">◑ CG5 — Account Management</text>
+            <text x="10" y="96" font-family="monospace" font-size="6" fill="#f78166">○ CG6 — Access Control Management</text>
+            <text x="10" y="108" font-family="monospace" font-size="6" fill="#8b949e">○ CG7 — Continuous Vulnerability Mgmt</text>
+            <!-- Right: NIST mapping -->
+            <rect x="220" y="26" width="90" height="92" rx="2" fill="#0d1117" stroke="#21262d" stroke-width="0.7"/>
+            <text x="265" y="37" font-family="monospace" font-size="5.5" fill="#8b949e" text-anchor="middle">NIST CSF 2.0</text>
+            <text x="228" y="50" font-family="monospace" font-size="5" fill="#8b949e">Govern</text>
+            <text x="228" y="62" font-family="monospace" font-size="5" fill="#39d353">Identify ✓</text>
+            <text x="228" y="74" font-family="monospace" font-size="5" fill="#e3b341">Protect ◑</text>
+            <text x="228" y="86" font-family="monospace" font-size="5" fill="#39d353">Detect ✓</text>
+            <text x="228" y="98" font-family="monospace" font-size="5" fill="#8b949e">Respond</text>
+            <text x="228" y="110" font-family="monospace" font-size="5" fill="#8b949e">Recover</text>
+          </svg>
+        </div>
+        <div class="lab-body">
+          <span class="lab-badge gold">GRC · CIS · NIST</span>
+          <div class="lab-title">CIS Controls v8 & NIST CSF 2.0 — evaluación por grupos</div>
+          <p class="lab-desc">
+            Implemento CIS Controls v8 comenzando por IG1 (Implementation Group 1): para cada control aplico la encuesta correspondiente, la enmarco contra mi homelab y documento el estado real en CISO Assistant. El mapeo cruzado con NIST CSF 2.0 permite ver qué funciones (Identify, Protect, Detect…) están cubiertas y cuáles tienen gaps activos.
+          </p>
+          <div class="lab-tags">
+            <span class="lab-tag">CIS Controls v8</span>
+            <span class="lab-tag">NIST CSF 2.0</span>
+            <span class="lab-tag">IG1 / IG2</span>
+            <span class="lab-tag">CISO Assistant</span>
+            <span class="lab-tag">Control mapping</span>
+          </div>
+          <a href="https://github.com/lopezsalexander" target="_blank" class="lab-link">
+            <i class="fa-brands fa-github"></i> Ver repositorio
+          </a>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
+  <!-- ══════════════════════════════ EXPERIENCE ══════════════════════════════ -->
   <section id="experience">
     <div class="section-label"><span>// 04 — Experiencia</span></div>
     <h2 class="reveal" style="margin-bottom:2.5rem;">Trayectoria profesional</h2>
@@ -471,8 +849,8 @@
           <h3>Coordinador de Seguridad Informática</h3>
           <div class="timeline-company">Contratista — Fundación Universitaria del Área Andina</div>
           <p class="timeline-desc">
-            Operación de la estrategia de ciberseguridad sobre infraestructura educativa híbrida con miles de endpoints. Gestión de incidentes bajo ISO/IEC 27035 con trazabilidad completa desde la detección hasta el cierre. Coordinación del proceso de adopción de ISO/IEC 27001:2022, incluyendo análisis de brechas, documentación de controles y acompañamiento a equipos técnicos.<br><br>
-            Operación diaria de stack de seguridad: firewall perimetral, WAF, SIEM y EDR. Administración de Active Directory y Entra ID, controles de acceso basados en roles y políticas de autenticación centralizada. Hardening de servidores Windows y Linux bajo CIS Benchmarks. Coordinación directa con proveedores de plataforma y equipos internos de infraestructura.
+            Operación de la estrategia de ciberseguridad sobre infraestructura educativa híbrida. Gestión de incidentes bajo ISO/IEC 27035 con trazabilidad completa desde la detección hasta el cierre. Coordinación del proceso de adopción de ISO/IEC 27001:2022: análisis de brechas, documentación de controles y acompañamiento a equipos técnicos y áreas de negocio.<br><br>
+            Implementación de CIS Controls v8 como marco de control técnico y aplicación de NIST CSF 2.0 para la estructura del área. Operación diaria del stack de seguridad: firewall perimetral, WAF, SIEM y EDR. Administración de Active Directory y Entra ID, controles de acceso por roles, autenticación centralizada y hardening de servidores Windows y Linux bajo CIS Benchmarks.
           </p>
         </div>
       </div>
@@ -483,7 +861,7 @@
           <h3>Oficial de Seguridad</h3>
           <div class="timeline-company">Vycton Networks SAS</div>
           <p class="timeline-desc">
-            Administración integral de infraestructura On-premise y Cloud para la Fundación Universitaria del Área Andina durante más de cuatro años. Operación simultánea de NOC y SOC, monitoreo continuo de servicios críticos, gestión de alertas, análisis de logs y correlación de eventos. Supervisión de disponibilidad de plataformas Linux y Windows en producción, mantenimiento preventivo y respuesta ante degradaciones de servicio.
+            Administración integral de infraestructura On-premise y Cloud para Areandina durante más de cuatro años. Operación simultánea de NOC y SOC: monitoreo continuo de servicios críticos, correlación de eventos, análisis de logs y gestión de alertas. Supervisión de disponibilidad en plataformas Linux y Windows en producción, con respuesta ante degradaciones antes de impacto al usuario final.
           </p>
         </div>
       </div>
@@ -492,9 +870,9 @@
         <div class="timeline-date">Ago 2019 — Mar 2020</div>
         <div class="timeline-body">
           <h3>Jefe de Sistemas</h3>
-          <div class="timeline-company">Concesión Salitre Mágico SAS</div>
+          <div class="timeline-company">Consorcio Salitre Mágico SAS</div>
           <p class="timeline-desc">
-            Administración de la infraestructura de red y sistemas del parque. Dirección del equipo técnico de TI. Rediseño de la arquitectura de telecomunicaciones con foco en reducción de superficie de ataque y aislamiento de segmentos críticos, resultando en reducción medible de vulnerabilidades activas y mayor estabilidad de los sistemas de punto de venta y control.
+            Administración de infraestructura de red y sistemas. Dirección del equipo técnico de TI. Rediseño de la arquitectura de telecomunicaciones con foco en reducción de superficie de ataque y aislamiento de segmentos críticos, resultando en reducción medible de vulnerabilidades activas y mayor estabilidad operativa en sistemas de punto de venta y control.
           </p>
         </div>
       </div>
@@ -502,7 +880,7 @@
     </div>
   </section>
 
-  <!-- EDUCATION -->
+  <!-- ══════════════════════════════ EDUCATION ══════════════════════════════ -->
   <section id="education">
     <div class="section-label"><span>// 05 — Formación</span></div>
     <h2 class="reveal" style="margin-bottom:2rem;">Educación & Certificaciones</h2>
@@ -532,40 +910,36 @@
         <div class="cert-name">Red Hat Certified System Administrator (RHCSA)</div>
       </div>
       <div class="cert-card">
-        <div class="cert-issuer">KAspersky</div>
-        <div class="cert-name">KL 024.2 — Management Kaspersky EDR Optimum</div>
+        <div class="cert-issuer">ISC2</div>
+        <div class="cert-name">Certified in Cybersecurity (CC)</div>
       </div>
       <div class="cert-card">
         <div class="cert-issuer">ISO / IEC</div>
         <div class="cert-name">ISO/IEC 27001:2022 — Seguridad de la Información</div>
       </div>
-      <div class="cert-card">
-        <div class="cert-issuer">ISO / IEC</div>
-        <div class="cert-name">ISO/IEC 27035 — Gestión de Incidentes</div>
-      </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ══════════════════════════════ CONTACT ══════════════════════════════ -->
   <section id="contact">
     <div class="section-label"><span>// 06 — Contacto</span></div>
     <div class="contact-grid reveal">
       <div class="contact-intro">
         <h2>Hablemos</h2>
         <p>
-          Si estás buscando alguien para fortalecer infraestructura, operar seguridad defensiva o asumir un rol de sysadmin en un entorno exigente, puedo aportar criterio técnico desde el primer día.
+          Si estás buscando a alguien que opere infraestructura crítica, implemente seguridad defensiva real o lleve un proceso de cumplimiento normativo con criterio técnico, puedo aportar desde el primer día.
         </p>
         <br>
         <p style="color: var(--dim);">Tiempo de respuesta habitual: 24–48 horas.</p>
       </div>
       <div class="contact-links">
-        <a href="mailto:contacto@lopezsalexander.com" class="contact-link">
+        <a href="#" class="contact-link" id="email-link">
           <i class="fa-solid fa-envelope"></i>
-          contacto@lopezsalexander.com
+          <span id="email-text">—</span>
         </a>
-        <a href="tel:+573134746906" class="contact-link">
+        <a href="#" class="contact-link" id="phone-link">
           <i class="fa-solid fa-phone"></i>
-          +57 313 474 6906
+          <span id="phone-text">—</span>
         </a>
         <a href="https://linkedin.com/in/lopezsalexander" target="_blank" class="contact-link">
           <i class="fa-brands fa-linkedin"></i>
@@ -584,18 +958,44 @@
   </footer>
 
   <script>
+    // ── Scroll reveal ──
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), 60);
+          setTimeout(() => entry.target.classList.add('visible'), 55);
         }
       });
     }, { threshold: 0.07 });
     reveals.forEach(el => observer.observe(el));
     window.addEventListener('load', () => {
-      document.querySelector('.hero-content').classList.add('visible');
+      document.querySelector('.hero-content')?.classList.add('visible');
     });
+
+    // ── Anti-spam: contact info decoded at runtime ──
+    // Email and phone are NOT in the HTML source — assembled by JS only
+    (function() {
+      const parts = ['contacto', '\u0040', 'lopezsalexander', '\u002E', 'com'];
+      const email  = parts.join('');
+      const phoneRaw  = ['+57', '313', '474', '6906'].join('\u0020');
+      const phoneHref = '+573134746906';
+
+      // About section
+      const ae = document.getElementById('about-email');
+      const ap = document.getElementById('about-phone');
+      if (ae) ae.textContent = email;
+      if (ap) ap.textContent = phoneRaw;
+
+      // Contact section
+      const el  = document.getElementById('email-link');
+      const et  = document.getElementById('email-text');
+      const pl  = document.getElementById('phone-link');
+      const pt  = document.getElementById('phone-text');
+      if (el) el.href = 'mailto:' + email;
+      if (et) et.textContent = email;
+      if (pl) pl.href = 'tel:' + phoneHref;
+      if (pt) pt.textContent = phoneRaw;
+    })();
   </script>
 </body>
 </html>
