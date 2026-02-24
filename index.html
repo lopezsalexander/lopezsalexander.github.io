@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alexander López | Ingeniero de Sistemas & Ciberseguridad</title>
+  <title>Alexander López | Infraestructura & Seguridad Defensiva</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
       --bg: #080c10;
@@ -15,14 +15,12 @@
       --border: #21262d;
       --accent: #39d353;
       --accent2: #58a6ff;
-      --accent3: #f78166;
       --text: #e6edf3;
       --muted: #8b949e;
       --dim: #30363d;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -34,7 +32,6 @@
       overflow-x: hidden;
     }
 
-    /* Grid background */
     body::before {
       content: '';
       position: fixed;
@@ -47,415 +44,214 @@
       z-index: 0;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+      position: fixed; top: 0; left: 0; right: 0;
       z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 1rem 3rem;
-      background: rgba(8,12,16,0.85);
+      background: rgba(8,12,16,0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-
     .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-      text-decoration: none;
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
+      color: var(--accent); letter-spacing: 0.05em; text-decoration: none;
     }
     .nav-logo span { color: var(--text); }
-
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.2s;
+      color: var(--muted); text-decoration: none; font-size: 0.72rem;
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* ── HERO ── */
+    /* HERO */
     #home {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
       padding: 8rem 3rem 4rem;
-      max-width: 1100px;
-      margin: 0 auto;
+      max-width: 1100px; margin: 0 auto;
     }
-
-    .hero-content { max-width: 700px; }
+    .hero-content { max-width: 720px; }
 
     .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(57,211,83,0.08);
-      border: 1px solid rgba(57,211,83,0.2);
-      color: var(--accent);
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.35rem 0.8rem;
-      border-radius: 2px;
-      margin-bottom: 2rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(57,211,83,0.08); border: 1px solid rgba(57,211,83,0.2);
+      color: var(--accent); font-size: 0.68rem; letter-spacing: 0.15em;
+      text-transform: uppercase; padding: 0.35rem 0.8rem;
+      border-radius: 2px; margin-bottom: 2rem;
     }
     .hero-tag::before {
-      content: '';
-      width: 6px; height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
+      content: ''; width: 6px; height: 6px;
+      background: var(--accent); border-radius: 50%; animation: pulse 2s infinite;
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
 
     h1 {
       font-family: 'Syne', sans-serif;
       font-size: clamp(2.8rem, 6vw, 4.5rem);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
+      font-weight: 800; line-height: 1.05;
+      letter-spacing: -0.02em; margin-bottom: 1.5rem;
     }
-
     h1 .line2 { color: var(--muted); }
 
-    .hero-subtitle {
-      font-size: 0.85rem;
-      color: var(--muted);
-      max-width: 520px;
-      margin-bottom: 2.5rem;
-      line-height: 1.8;
-    }
+    .hero-value { margin-bottom: 2rem; }
+    .hero-value p { font-size: 0.88rem; color: var(--muted); line-height: 1.85; max-width: 600px; }
+    .hero-value p + p { margin-top: 0.75rem; }
+    .hero-value strong { color: var(--text); font-weight: 500; }
 
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 2.5rem;
-    }
-
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
     .badge {
-      font-size: 0.68rem;
-      padding: 0.25rem 0.65rem;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      background: var(--surface);
+      font-size: 0.67rem; padding: 0.25rem 0.65rem;
+      border: 1px solid var(--border); border-radius: 2px;
+      color: var(--muted); letter-spacing: 0.08em; background: var(--surface);
     }
 
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: all 0.2s;
-      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.5rem; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px; transition: all 0.2s; cursor: pointer;
     }
-    .btn-primary {
-      background: var(--accent);
-      color: #000;
-      border: 1px solid var(--accent);
-      font-weight: 500;
-    }
+    .btn-primary { background: var(--accent); color: #000; border: 1px solid var(--accent); font-weight: 500; }
     .btn-primary:hover { background: transparent; color: var(--accent); }
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
     .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); }
 
     .hero-right {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      opacity: 0.06;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      line-height: 1.6;
-      color: var(--accent);
-      text-align: right;
-      pointer-events: none;
-      white-space: pre;
+      position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+      opacity: 0.055; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+      line-height: 1.7; color: var(--accent); text-align: right;
+      pointer-events: none; white-space: pre;
     }
 
-    /* ── SECTIONS ── */
+    /* SECTIONS */
     section {
-      position: relative;
-      z-index: 1;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 6rem 3rem;
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto; padding: 6rem 3rem;
     }
-
     .section-label {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 3rem;
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem;
     }
     .section-label span {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
+      font-size: 0.64rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent); white-space: nowrap;
     }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     h2 {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.5rem;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.5rem;
     }
 
-    /* ── ABOUT ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-text p {
-      color: var(--muted);
-      margin-bottom: 1rem;
-      line-height: 1.9;
-      font-size: 0.82rem;
-    }
-
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; line-height: 1.9; font-size: 0.82rem; }
+    .about-text strong { color: var(--text); font-weight: 500; }
     .about-info { display: flex; flex-direction: column; gap: 1rem; }
-
     .info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 0.9rem 1rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 3px;
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 0.9rem 1rem; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 3px;
     }
-    .info-item i {
-      color: var(--accent);
-      margin-top: 0.1rem;
-      width: 14px;
-    }
-    .info-item .label { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .info-item i { color: var(--accent); margin-top: 0.1rem; width: 14px; flex-shrink: 0; }
+    .info-item .label { font-size: 0.63rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
     .info-item .val { font-size: 0.8rem; color: var(--text); }
 
-    /* ── SKILLS ── */
+    /* SKILLS */
     .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1px;
-      border: 1px solid var(--border);
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1px; border: 1px solid var(--border);
     }
-
     .skill-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 1rem 1.2rem;
-      background: var(--surface);
-      font-size: 0.78rem;
-      color: var(--muted);
-      transition: all 0.2s;
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 1rem 1.2rem; background: var(--surface);
+      font-size: 0.78rem; color: var(--muted); transition: all 0.2s;
     }
-    .skill-item:hover {
-      background: var(--surface2);
-      color: var(--text);
+    .skill-item:hover { background: var(--surface2); color: var(--text); }
+    .skill-item i { color: var(--accent2); width: 16px; text-align: center; flex-shrink: 0; }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+    .project-card {
+      padding: 1.6rem; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 3px;
+      transition: all 0.25s; position: relative; overflow: hidden;
     }
-    .skill-item i { color: var(--accent2); width: 14px; }
+    .project-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 3px; height: 100%; background: var(--border); transition: background 0.2s;
+    }
+    .project-card:hover { border-color: var(--dim); transform: translateY(-2px); }
+    .project-card:hover::before { background: var(--accent); }
+    .project-icon { font-size: 1.1rem; color: var(--accent2); margin-bottom: 1rem; }
+    .project-title { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text); }
+    .project-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .project-tag {
+      font-size: 0.63rem; padding: 0.2rem 0.55rem;
+      border: 1px solid var(--border); border-radius: 2px;
+      color: var(--dim); letter-spacing: 0.06em; background: var(--bg);
+    }
 
-    /* ── EXPERIENCE ── */
-    .timeline { display: flex; flex-direction: column; gap: 0; }
-
+    /* TIMELINE */
+    .timeline { display: flex; flex-direction: column; }
     .timeline-item {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 2rem;
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--border);
-      position: relative;
+      display: grid; grid-template-columns: 180px 1fr;
+      gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--border);
     }
     .timeline-item:last-child { border-bottom: none; }
+    .timeline-date { font-size: 0.7rem; color: var(--muted); padding-top: 0.2rem; letter-spacing: 0.05em; }
+    .timeline-date .current { display: inline-block; color: var(--accent); font-size: 0.63rem; letter-spacing: 0.1em; margin-top: 0.3rem; }
+    .timeline-body h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .timeline-company { font-size: 0.75rem; color: var(--accent2); margin-bottom: 0.8rem; }
+    .timeline-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.88; }
+    .timeline-desc strong { color: var(--text); font-weight: 500; }
 
-    .timeline-date {
-      font-size: 0.7rem;
-      color: var(--muted);
-      padding-top: 0.2rem;
-      letter-spacing: 0.05em;
-    }
-    .timeline-date .current {
-      display: inline-block;
-      color: var(--accent);
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      margin-top: 0.3rem;
-    }
-
-    .timeline-body h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-    }
-    .timeline-company {
-      font-size: 0.75rem;
-      color: var(--accent2);
-      margin-bottom: 0.8rem;
-    }
-    .timeline-desc {
-      font-size: 0.78rem;
-      color: var(--muted);
-      line-height: 1.85;
-    }
-
-    /* ── CERTS ── */
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-
-    .cert-card {
-      padding: 1.4rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      transition: all 0.2s;
-    }
-    .cert-card:hover {
-      border-color: var(--accent2);
-      transform: translateY(-2px);
-    }
-    .cert-issuer {
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
-    .cert-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    /* ── EDUCATION ── */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
+    /* EDUCATION */
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .edu-card {
-      padding: 1.5rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
+      padding: 1.5rem; background: var(--surface);
+      border: 1px solid var(--border); border-left: 3px solid var(--accent);
       border-radius: 0 3px 3px 0;
     }
-    .edu-year { font-size: 0.68rem; color: var(--muted); margin-bottom: 0.4rem; letter-spacing: 0.1em; }
-    .edu-degree {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
+    .edu-year { font-size: 0.67rem; color: var(--muted); margin-bottom: 0.4rem; letter-spacing: 0.1em; }
+    .edu-degree { font-family: 'Syne', sans-serif; font-size: 0.93rem; font-weight: 700; margin-bottom: 0.3rem; }
     .edu-school { font-size: 0.75rem; color: var(--accent2); }
 
-    /* ── CONTACT ── */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+    .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .cert-card {
+      padding: 1.4rem; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 3px; transition: all 0.2s;
     }
+    .cert-card:hover { border-color: var(--accent2); transform: translateY(-2px); }
+    .cert-issuer { font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+    .cert-name { font-family: 'Syne', sans-serif; font-size: 0.88rem; font-weight: 600; color: var(--text); }
 
-    .contact-intro {
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.9;
-    }
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .contact-intro { font-size: 0.82rem; color: var(--muted); line-height: 1.9; }
     .contact-intro h2 { color: var(--text); margin-bottom: 1rem; }
-
     .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
-
     .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.2rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      text-decoration: none;
-      color: var(--text);
-      font-size: 0.78rem;
-      transition: all 0.2s;
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.2rem; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 3px;
+      text-decoration: none; color: var(--text); font-size: 0.78rem; transition: all 0.2s;
     }
-    .contact-link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-    .contact-link i { color: var(--accent2); width: 16px; }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-link i { color: var(--accent2); width: 16px; text-align: center; flex-shrink: 0; }
 
-    /* ── FOOTER ── */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 3rem;
-      text-align: center;
-      font-size: 0.68rem;
-      color: var(--dim);
-      letter-spacing: 0.1em;
+      border-top: 1px solid var(--border); padding: 2rem 3rem;
+      text-align: center; font-size: 0.67rem; color: var(--dim); letter-spacing: 0.1em;
     }
 
-    /* ── ANIMATIONS ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
@@ -468,12 +264,12 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a href="#home" class="nav-logo">AL<span>/></span></a>
     <ul class="nav-links">
       <li><a href="#about">Perfil</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Proyectos</a></li>
       <li><a href="#experience">Experiencia</a></li>
       <li><a href="#education">Formación</a></li>
       <li><a href="#contact">Contacto</a></li>
@@ -483,38 +279,46 @@
   <!-- HERO -->
   <div id="home">
     <div class="hero-content reveal">
-      <div class="hero-tag">Disponible para proyectos</div>
-      <h1>
-        Alexander<br>
-        <span class="line2">López Salazar</span>
-      </h1>
-      <p class="hero-subtitle">
-        Ingeniero de Sistemas y aspirante a especialista en ciberseguridad, profesional en infraestructura híbrida y continuidad operativa. Bogotá, Colombia.
-      </p>
-      <div class="hero-badges">
-        <span class="badge">ISO 27001</span>
-        <span class="badge">RHCSA</span>
-        <span class="badge">SIEM / EDR</span>
-        <span class="badge">Azure & AWS</span>
-        <span class="badge">Linux</span>
-        <span class="badge">Docker</span>
-        <span class="badge">VAPT</span>
+      <div class="hero-tag">Disponible para nuevos roles</div>
+      <h1>Alexander<br><span class="line2">López Salazar</span></h1>
+
+      <div class="hero-value">
+        <p>
+          <strong>Ingeniero de Sistemas con énfasis en infraestructura crítica y seguridad defensiva.</strong>
+          Diseño y opero entornos híbridos — On-premise, virtualizado y multinube — donde la disponibilidad no es negociable y la superficie de ataque tiene que ser la mínima posible.
+        </p>
+        <p>
+          Mi trabajo consiste en reducir el tiempo de detección y respuesta ante incidentes, endurecer arquitecturas de red y servidor, y garantizar que los servicios esenciales sigan funcionando cuando algo sale mal. No solo los apago: entiendo por qué fallaron.
+        </p>
       </div>
+
+      <div class="hero-badges">
+        <span class="badge">Infraestructura Híbrida</span>
+        <span class="badge">Seguridad Defensiva</span>
+        <span class="badge">Sysadmin Linux / Windows</span>
+        <span class="badge">SIEM · EDR · WAF</span>
+        <span class="badge">ISO 27001 · 27035</span>
+        <span class="badge">RHCSA</span>
+        <span class="badge">Azure · AWS</span>
+        <span class="badge">FortiGate · OPNsense</span>
+      </div>
+
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary"><i class="fa fa-envelope"></i> Contactar</a>
-        <a href="#experience" class="btn btn-outline"><i class="fa fa-terminal"></i> Ver experiencia</a>
+        <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Contactar</a>
+        <a href="#projects" class="btn btn-outline"><i class="fa-solid fa-terminal"></i> Ver proyectos</a>
       </div>
     </div>
 
     <div class="hero-right">
-[firewall]    ACTIVE
-[EDR]         RUNNING
-[SIEM]        CONNECTED
-[ISO 27001]   ALIGNED
-[RHCSA]       CERTIFIED
-[uptime]      99.9%
-[threats]     MITIGATED
-[incidents]   RESOLVED
+[firewall]      ACTIVE
+[EDR]           RUNNING
+[SIEM]          CONNECTED
+[ISO 27001]     ALIGNED
+[RHCSA]         CERTIFIED
+[AD / Entra ID] MANAGED
+[uptime]        99.9%
+[incidents]     RESOLVED
+[hardening]     APPLIED
     </div>
   </div>
 
@@ -524,38 +328,36 @@
     <div class="about-grid reveal">
       <div class="about-text">
         <h2>Sobre mí</h2>
-        <p>Ingeniero de Sistemas con foco en la gestión integral de infraestructura tecnológica, ciberseguridad y continuidad operativa en entornos corporativos.</p>
-        <p>Amplio dominio en ecosistemas híbridos que integran infraestructura On-premise, virtualizada y multinube, gestionando servicios críticos con enfoque en resiliencia, escalabilidad y eficiencia.</p>
-        <p>He liderado equipos técnicos y coordinado proyectos de modernización tecnológica, migración a infraestructura hiperconvergente y fortalecimiento de seguridad perimetral y de endpoints, aplicando marcos normativos como ISO/IEC 27001 e ISO/IEC 27035.</p>
+        <p>
+          Llevo más de diez años administrando infraestructura en producción para entornos donde los errores tienen costo real. He operado NOC y SOC en simultáneo, coordinado respuesta ante incidentes bajo ISO/IEC 27035 y diseñado arquitecturas de seguridad perimetral que van desde la segmentación de red hasta la detección temprana de amenazas.
+        </p>
+        <p>
+          Mi perfil combina criterio técnico de sysadmin con visión de seguridad defensiva: entiendo cómo funciona la infraestructura que tengo que proteger, y eso cambia la forma en que la protejo. No aplico controles por cumplimiento; los aplico porque conozco el vector.
+        </p>
+        <p>
+          Actualmente coordino controles de acceso, hardening de servidores y la operación de una plataforma de seguridad que incluye firewall, WAF, SIEM y EDR sobre infraestructura híbrida con Active Directory y Entra ID.
+        </p>
       </div>
       <div class="about-info">
         <div class="info-item">
-          <i class="fa fa-location-dot"></i>
-          <div>
-            <div class="label">Ubicación</div>
-            <div class="val">Bogotá, Colombia</div>
-          </div>
+          <i class="fa-solid fa-location-dot"></i>
+          <div><div class="label">Ubicación</div><div class="val">Bogotá, Colombia</div></div>
         </div>
         <div class="info-item">
-          <i class="fa fa-envelope"></i>
-          <div>
-            <div class="label">Email</div>
-            <div class="val">contacto@lopezsalexander.com</div>
-          </div>
+          <i class="fa-solid fa-envelope"></i>
+          <div><div class="label">Email</div><div class="val">contacto@lopezsalexander.com</div></div>
         </div>
         <div class="info-item">
-          <i class="fa fa-phone"></i>
-          <div>
-            <div class="label">Teléfono</div>
-            <div class="val">+57 313 474 6906</div>
-          </div>
+          <i class="fa-solid fa-phone"></i>
+          <div><div class="label">Teléfono</div><div class="val">+57 313 474 6906</div></div>
         </div>
         <div class="info-item">
-          <i class="fa fa-language"></i>
-          <div>
-            <div class="label">Idiomas</div>
-            <div class="val">Español nativo · Inglés B2</div>
-          </div>
+          <i class="fa-solid fa-language"></i>
+          <div><div class="label">Idiomas</div><div class="val">Español nativo · Inglés B2</div></div>
+        </div>
+        <div class="info-item">
+          <i class="fa-solid fa-heart"></i>
+          <div><div class="label">Intereses</div><div class="val">Fútbol · Cine · Música · Podcasts</div></div>
         </div>
       </div>
     </div>
@@ -563,31 +365,100 @@
 
   <!-- SKILLS -->
   <section id="skills">
-    <div class="section-label"><span>// 02 — Habilidades</span></div>
-    <h2 class="reveal" style="margin-bottom:2rem;">Stack técnico</h2>
+    <div class="section-label"><span>// 02 — Stack técnico</span></div>
+    <h2 class="reveal" style="margin-bottom:2rem;">Herramientas y plataformas</h2>
     <div class="skills-grid reveal">
-      <div class="skill-item"><i class="fa fa-shield-halved"></i> Ciberseguridad</div>
-      <div class="skill-item"><i class="fa fa-network-wired"></i> Redes & Perimetral</div>
-      <div class="skill-item"><i class="fa fa-eye"></i> SIEM / SOC / NOC</div>
-      <div class="skill-item"><i class="fa fa-bug-slash"></i> EDR & WAF</div>
-      <div class="skill-item"><i class="fa fa-linux"></i> Linux (RHCSA)</div>
-      <div class="skill-item"><i class="fa fa-windows"></i> Windows Server / AD</div>
-      <div class="skill-item"><i class="fa fa-cloud"></i> Microsoft Azure</div>
-      <div class="skill-item"><i class="fab fa-aws"></i> Amazon Web Services</div>
-      <div class="skill-item"><i class="fa fa-docker"></i> Docker</div>
-      <div class="skill-item"><i class="fa fa-database"></i> Backups & Continuidad</div>
-      <div class="skill-item"><i class="fa fa-code"></i> Python Scripting</div>
-      <div class="skill-item"><i class="fa fa-globe"></i> Web Hardening</div>
-      <div class="skill-item"><i class="fa fa-file-code"></i> PHP</div>
-      <div class="skill-item"><i class="fa fa-lock"></i> Seguridad en Código</div>
-      <div class="skill-item"><i class="fa fa-cube"></i> Open Source</div>
-      <div class="skill-item"><i class="fa fa-id-card"></i> ISO 27001 / 27035</div>
+      <div class="skill-item"><i class="fa-solid fa-shield-halved"></i> Seguridad Defensiva</div>
+      <div class="skill-item"><i class="fa-solid fa-network-wired"></i> Redes & Perímetro</div>
+      <div class="skill-item"><i class="fa-solid fa-eye"></i> SIEM / SOC / NOC</div>
+      <div class="skill-item"><i class="fa-solid fa-bug-slash"></i> EDR & WAF</div>
+      <div class="skill-item"><i class="fa-brands fa-linux"></i> Linux · RHCSA</div>
+      <div class="skill-item"><i class="fa-brands fa-windows"></i> Windows Server · AD · Entra ID</div>
+      <div class="skill-item"><i class="fa-solid fa-cloud"></i> Microsoft Azure</div>
+      <div class="skill-item"><i class="fa-brands fa-aws"></i> Amazon Web Services</div>
+      <div class="skill-item"><i class="fa-brands fa-docker"></i> Docker · Virtualización</div>
+      <div class="skill-item"><i class="fa-solid fa-fire-flame-curved"></i> FortiGate · OPNsense</div>
+      <div class="skill-item"><i class="fa-solid fa-route"></i> Mikrotik · VLANs</div>
+      <div class="skill-item"><i class="fa-solid fa-database"></i> Backup & Continuidad</div>
+      <div class="skill-item"><i class="fa-brands fa-python"></i> Python Scripting</div>
+      <div class="skill-item"><i class="fa-solid fa-lock"></i> Hardening & Compliance</div>
+      <div class="skill-item"><i class="fa-solid fa-file-shield"></i> ISO 27001 · ISO 27035</div>
+      <div class="skill-item"><i class="fa-solid fa-server"></i> Proxmox · Hyper-V</div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label"><span>// 03 — Proyectos técnicos</span></div>
+    <h2 class="reveal" style="margin-bottom:0.5rem;">Laboratorio y arquitectura</h2>
+    <p class="reveal" style="color:var(--muted);font-size:0.8rem;margin-bottom:2.5rem;max-width:600px;line-height:1.85;">
+      Proyectos de diseño e implementación en entornos controlados, orientados a validar arquitecturas de seguridad y operación de infraestructura.
+    </p>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-icon"><i class="fa-solid fa-cubes"></i></div>
+        <div class="project-title">Laboratorio defensivo virtualizado</div>
+        <p class="project-desc">
+          Diseño e implementación de un laboratorio sobre Proxmox con múltiples VMs para simular entornos corporativos reales. Incluye instancias de Active Directory, servidores Linux, nodos de monitoreo y segmentos de red aislados para análisis de amenazas sin riesgo de contaminación lateral.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Proxmox VE</span>
+          <span class="project-tag">Active Directory</span>
+          <span class="project-tag">Virtualización</span>
+          <span class="project-tag">Network isolation</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon"><i class="fa-solid fa-sitemap"></i></div>
+        <div class="project-title">Segmentación de red con VLANs y FortiGate</div>
+        <p class="project-desc">
+          Diseño de arquitectura de red segmentada por zonas funcionales: usuarios, servidores, DMZ y gestión. Implementación de políticas de firewall en FortiGate para control de tráfico inter-VLAN, con reglas de denegación implícita y logging centralizado de flujos.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">FortiGate</span>
+          <span class="project-tag">VLANs 802.1Q</span>
+          <span class="project-tag">DMZ</span>
+          <span class="project-tag">Firewall policies</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon"><i class="fa-solid fa-flask"></i></div>
+        <div class="project-title">Entornos aislados para análisis de seguridad</div>
+        <p class="project-desc">
+          Construcción de sandbox con redes internas sin salida a Internet para análisis estático y dinámico de artefactos sospechosos. Snapshots automáticos para rollback limpio post-análisis. Integración con herramientas de captura de tráfico para correlación de comportamiento.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Sandbox</span>
+          <span class="project-tag">Análisis de malware</span>
+          <span class="project-tag">Wireshark</span>
+          <span class="project-tag">Snapshots</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon"><i class="fa-solid fa-route"></i></div>
+        <div class="project-title">Ruteo y control de tráfico con OPNsense y Mikrotik</div>
+        <p class="project-desc">
+          Implementación de escenarios de ruteo avanzado combinando OPNsense como firewall perimetral y Mikrotik para control de tráfico interno. Configuración de políticas de QoS, reglas de NAT, VPN site-to-site y monitoreo de ancho de banda por segmento.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">OPNsense</span>
+          <span class="project-tag">Mikrotik</span>
+          <span class="project-tag">VPN</span>
+          <span class="project-tag">QoS</span>
+          <span class="project-tag">NAT</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- EXPERIENCE -->
   <section id="experience">
-    <div class="section-label"><span>// 03 — Experiencia</span></div>
+    <div class="section-label"><span>// 04 — Experiencia</span></div>
     <h2 class="reveal" style="margin-bottom:2.5rem;">Trayectoria profesional</h2>
     <div class="timeline">
 
@@ -600,7 +471,8 @@
           <h3>Coordinador de Seguridad Informática</h3>
           <div class="timeline-company">Contratista — Fundación Universitaria del Área Andina</div>
           <p class="timeline-desc">
-            Implementación y operación de estrategias de ciberseguridad en entornos educativos con infraestructura híbrida. Liderazgo en gestión de incidentes alineada a ISO/IEC 27035 y apoyo a la adopción de ISO/IEC 27001:2022. Fortalecimiento de arquitecturas de seguridad perimetral mediante firewalls, WAF, SIEM y EDR. Coordinación de controles de acceso, autenticación centralizada, Active Directory y Entra ID. Hardening de servidores Windows y Linux.
+            Operación de la estrategia de ciberseguridad sobre infraestructura educativa híbrida con miles de endpoints. Gestión de incidentes bajo ISO/IEC 27035 con trazabilidad completa desde la detección hasta el cierre. Coordinación del proceso de adopción de ISO/IEC 27001:2022, incluyendo análisis de brechas, documentación de controles y acompañamiento a equipos técnicos.<br><br>
+            Operación diaria de stack de seguridad: firewall perimetral, WAF, SIEM y EDR. Administración de Active Directory y Entra ID, controles de acceso basados en roles y políticas de autenticación centralizada. Hardening de servidores Windows y Linux bajo CIS Benchmarks. Coordinación directa con proveedores de plataforma y equipos internos de infraestructura.
           </p>
         </div>
       </div>
@@ -609,9 +481,9 @@
         <div class="timeline-date">Jul 2020 — Feb 2025</div>
         <div class="timeline-body">
           <h3>Oficial de Seguridad</h3>
-          <div class="timeline-company">Vycton Networks</div>
+          <div class="timeline-company">Vycton Networks SAS</div>
           <p class="timeline-desc">
-            Líder en administración y monitoreo integral de infraestructura y servicios On-premise y Cloud para Areandina, abarcando plataformas Linux y Windows. Supervisión de operaciones de NOC y SOC, garantizando vigilancia constante y respuesta eficaz ante incidentes de seguridad durante más de 4 años.
+            Administración integral de infraestructura On-premise y Cloud para la Fundación Universitaria del Área Andina durante más de cuatro años. Operación simultánea de NOC y SOC, monitoreo continuo de servicios críticos, gestión de alertas, análisis de logs y correlación de eventos. Supervisión de disponibilidad de plataformas Linux y Windows en producción, mantenimiento preventivo y respuesta ante degradaciones de servicio.
           </p>
         </div>
       </div>
@@ -622,7 +494,7 @@
           <h3>Jefe de Sistemas</h3>
           <div class="timeline-company">Concesión Salitre Mágico SAS</div>
           <p class="timeline-desc">
-            Administración y aseguramiento integral de infraestructura y servicios de red. Coordinación y dirección de personal técnico a cargo. Implementación de proyectos de mejora de seguridad en telecomunicaciones, logrando reducción significativa de vulnerabilidades y aumento en la robustez de los sistemas.
+            Administración de la infraestructura de red y sistemas del parque. Dirección del equipo técnico de TI. Rediseño de la arquitectura de telecomunicaciones con foco en reducción de superficie de ataque y aislamiento de segmentos críticos, resultando en reducción medible de vulnerabilidades activas y mayor estabilidad de los sistemas de punto de venta y control.
           </p>
         </div>
       </div>
@@ -632,7 +504,7 @@
 
   <!-- EDUCATION -->
   <section id="education">
-    <div class="section-label"><span>// 04 — Formación</span></div>
+    <div class="section-label"><span>// 05 — Formación</span></div>
     <h2 class="reveal" style="margin-bottom:2rem;">Educación & Certificaciones</h2>
 
     <div class="edu-grid reveal" style="margin-bottom:2rem;">
@@ -660,6 +532,10 @@
         <div class="cert-name">Red Hat Certified System Administrator (RHCSA)</div>
       </div>
       <div class="cert-card">
+        <div class="cert-issuer">KAspersky</div>
+        <div class="cert-name">KL 024.2 — Management Kaspersky EDR Optimum</div>
+      </div>
+      <div class="cert-card">
         <div class="cert-issuer">ISO / IEC</div>
         <div class="cert-name">ISO/IEC 27001:2022 — Seguridad de la Información</div>
       </div>
@@ -672,55 +548,51 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="section-label"><span>// 05 — Contacto</span></div>
+    <div class="section-label"><span>// 06 — Contacto</span></div>
     <div class="contact-grid reveal">
       <div class="contact-intro">
         <h2>Hablemos</h2>
         <p>
-          ¿Tienes un proyecto, una oportunidad o simplemente quieres conectar? Estoy disponible para colaboraciones en ciberseguridad, infraestructura y gestión TI.
+          Si estás buscando alguien para fortalecer infraestructura, operar seguridad defensiva o asumir un rol de sysadmin en un entorno exigente, puedo aportar criterio técnico desde el primer día.
         </p>
         <br>
         <p style="color: var(--dim);">Tiempo de respuesta habitual: 24–48 horas.</p>
       </div>
       <div class="contact-links">
         <a href="mailto:contacto@lopezsalexander.com" class="contact-link">
-          <i class="fa fa-envelope"></i>
+          <i class="fa-solid fa-envelope"></i>
           contacto@lopezsalexander.com
         </a>
         <a href="tel:+573134746906" class="contact-link">
-          <i class="fa fa-phone"></i>
+          <i class="fa-solid fa-phone"></i>
           +57 313 474 6906
         </a>
         <a href="https://linkedin.com/in/lopezsalexander" target="_blank" class="contact-link">
-          <i class="fab fa-linkedin"></i>
+          <i class="fa-brands fa-linkedin"></i>
           linkedin.com/in/lopezsalexander
         </a>
-        <a href="https://github.com" target="_blank" class="contact-link">
-          <i class="fab fa-github"></i>
-          GitHub
+        <a href="https://github.com/lopezsalexander" target="_blank" class="contact-link">
+          <i class="fa-brands fa-github"></i>
+          github.com/lopezsalexander
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Alexander López Salazar — Bogotá, Colombia</p>
+    <p>© 2026 Alexander López Salazar — Bogotá, Colombia</p>
   </footer>
 
   <script>
-    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          setTimeout(() => entry.target.classList.add('visible'), 60);
         }
       });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.07 });
     reveals.forEach(el => observer.observe(el));
-
-    // Animate hero on load
     window.addEventListener('load', () => {
       document.querySelector('.hero-content').classList.add('visible');
     });
